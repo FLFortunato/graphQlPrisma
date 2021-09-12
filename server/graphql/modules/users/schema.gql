@@ -1,0 +1,31 @@
+input UserInput {
+  firstName: String
+  lastName: String
+  age: Int
+  country: String
+  email: String
+  password: String
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  fullName: String
+  age: Int
+  country: String!
+  email: String!
+  password: String!
+}
+
+type Query {
+  fullName: String
+  findAllUsers: [User!]
+  findUserByID(id: ID!): User!
+}
+
+type Mutation {
+  createUser(data: UserInput): User!
+  updateUser(id: ID!, data: UserInput): User!
+  deleteUser(id: ID!): Boolean
+}
